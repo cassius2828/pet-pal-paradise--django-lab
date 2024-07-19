@@ -1,3 +1,5 @@
+/* general styles / resets */
+
 *,
 *::before,
 *::after {
@@ -7,20 +9,158 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem = 10px */
 }
+:root {
+  --primary-color: #31a92f;
+  --theme-light-100: #f9f9f9;
+  --theme-light-200: #e0e0e0;
+  --theme-white: #fff;
+  --theme-dark: #333;
+}
+/* variables */
 
 body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--theme-light-100);
+  color: var(--theme-dark);
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  background-color: rgb(62, 28, 28);
 }
 
 ul,
 li {
   list-style: none;
 }
-button {
-  cursor: pointer;
+
+/* nav */
+nav {
+  background-color: var(--theme-white);
+  border-bottom: 0.1rem solid var(--theme-light-200);
+  padding: 1rem 2rem;
 }
 
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
 
+.nav-list li {
+  margin-right: 2rem;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-list li a:hover {
+  color: var(--primary-color);
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--theme-white);
+  padding: 2rem;
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+/* footer */
+
+footer {
+  background-color: var(--theme-white);
+  border-top: 0.1rem solid var(--theme-light-200);
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+/* card */
+
+.card {
+  background-color: var(--theme-white);
+  border: 0.1rem solid var(--theme-light-200);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+  padding: 2rem;
+}
+
+.card-header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  font-size: 1.6rem;
+  color: #666;
+}
+
+.card-footer {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+/* Button styles */
+button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--theme-white);
+  cursor: pointer;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+button:disabled {
+  background-color: var(--theme-light-200);
+  cursor: not-allowed;
+}
+
+/* Link styles */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.button-link {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--theme-white);
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+a.button-link:hover {
+  background-color: var(--primary-color);
+}
+
+/* Additional styles */
+.header-logo-container {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.header-logo-container img {
+  max-width: 10rem;
+}
+
+.main-content {
+  margin-top: 2rem;
+}

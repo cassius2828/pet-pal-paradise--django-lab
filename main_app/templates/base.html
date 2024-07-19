@@ -5,10 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static "css/base.css" %}"> {% block head
-    %}{% endblock head %}
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+     {% block head %}{% endblock head %}
   </head>
   <body>
+    <nav>
+        <ul class='nav-list'>
+            <li>Home</li>
+            <li>View Pets</li>
+            <li>View Profile</li>
+            <li>Sign Out</li>
+        </ul>
+    </nav>
     {% block content %}{% endblock content %}
   </body>
 </html>
