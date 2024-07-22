@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    Pet Pal Paradise | View Pets
+{% endblock title %}
+{% block head %}
+{% endblock head %}
+{% block content %}
+    <section id="view-pets">
+        <h1>View Pets</h1>
+        <ul class="card-container">
+            {% for pet in pets %}
+                <li class="card">
+                    <h2 class="card-header">{{ pet.name }}</h2>
+                    <div class="card-img">
+                        <img src="{{ pet.img }}"
+                             alt="{{ pet.name }}">
+                    </div>
+                    <div class="quick-details">
+                        <span>{{ pet.species }}</span>
+                        <span>{{ pet.age }} years old</span>
+                        <span class="price">${{ pet.price }}</span>
+                    </div>
+                    <div class="tags">
+                        {% for tag in pet.tags %}
+                            <button>{{ tag }}</button>
+                        {% endfor %}
+                    </div>
+                    <div class="details-container">
+                        <button>details</button>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock content %}
