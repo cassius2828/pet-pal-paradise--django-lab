@@ -12,8 +12,7 @@
                 <li class="card">
                     <h2 class="card-header">{{ pet.name }}</h2>
                     <div class="card-img">
-                        <img src="{{ pet.img }}"
-                             alt="{{ pet.name }}">
+                        <img src="{{ pet.img }}" alt="{{ pet.name }}">
                     </div>
                     <div class="quick-details">
                         <span>{{ pet.species }}</span>
@@ -21,12 +20,12 @@
                         <span class="price">${{ pet.price }}</span>
                     </div>
                     <div class="tags">
-                        {% for tag in pet.tags %}
-                            <button>{{ tag }}</button>
-                        {% endfor %}
+                        {% for tag in pet.tags %}<button>{{ tag }}</button>{% endfor %}
                     </div>
                     <div class="details-container">
-                        <button>details</button>
+                        <a href="{% url "pet_details" pet.id%}">
+                            <button>details</button>
+                        </a>
                     </div>
                 </li>
             {% endfor %}
