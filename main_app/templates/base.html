@@ -15,21 +15,27 @@
     <body>
         <nav>
             <ul class="nav-list">
-                <a href="{% url "home" %}">
-                    <li>Home</li>
-                </a>
-                <a href="{% url "pets_index" %}">
-                    <li>View Pets</li>
-                </a>
-                <a href="{% url "pet_create" %}">
-                    <li>Post a Pet</li>
-                </a>
-                <a href="/admin">
-                    <li>Admin</li>
-                </a>
-                <a href="/signout">
-                    <li>Sign Out</li>
-                </a>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'pets-index' %}">View Pets</a>
+                </li>
+                <li>
+                    <a href="{% url 'pet-create' %}">Post a Pet</a>
+                </li>
+                <li>
+                    <a href="{% url 'toy-index' %}">All Toys</a>
+                </li>
+                <li>
+                    <a href="{% url 'toy-create' %}">Add a Toy</a>
+                </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+                <li>
+                    <a href="/signout">Sign Out</a>
+                </li>
             </ul>
         </nav>
         {% block content %}

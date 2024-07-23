@@ -19,7 +19,7 @@ class Pet(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("pet_details", kwargs={"pet_id": self.id})
+        return reverse("pet-details", kwargs={"pet_id": self.id})
 
 
 class Vaccine(models.Model):
@@ -31,3 +31,15 @@ class Vaccine(models.Model):
 
     def __str__(self):
         return f"{self.name} was given on {self.date}"
+
+
+class Toy(models.Model):
+    name = models.CharField(max_length=50)
+    color = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.color} {self.name}"
+    
+    def get_absolute_url(self):
+        return reverse("toy-details", kwargs={"pk": self.id})
+    

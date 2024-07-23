@@ -23,14 +23,14 @@
             {% for tag in pet.tags %}<button>{{ tag }}</button>{% endfor %}
         </div>
         <a href="/pets" class="btn">Back to Pets</a>
-        <a href="{% url "pet_update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
-        <a href="{% url "pet_delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
+        <a href="{% url "pet-update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
+        <a href="{% url "pet-delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
     </section>
 
 
     {% comment %} add vaccines section below {% endcomment %}
     <h3 class="vaccine-title">Add a Vaccine</h3>
-    <form action="{% url "add_vaccine" pet.id %}"
+    <form action="{% url "add-vaccine" pet.id %}"
           method="POST"
           class="subsection-content">
         {% csrf_token %}
