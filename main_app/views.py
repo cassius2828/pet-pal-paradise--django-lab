@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Pet
+
 
 # Create your views here.
 def home(request):
@@ -13,34 +14,29 @@ def pets_index(request):
     return render(request, "pets/index.html", {"pets": pets})
 
 
-def pet_details(request,pet_id):
+def pet_details(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
-    return render(request,"pets/details.html", {"pet":pet} )
+    return render(request, "pets/details.html", {"pet": pet})
 
 
-def pets_delete(request):
-    return HttpResponse("delete pet")
+class PetCreate(CreateView):
+    model = Pet
+    fields = "__all__"
 
 
-def pets_edit(request):
-    return HttpResponse("edit pet")
+class PetUpdate(UpdateView):
+    model = Pet
+    fields = [
+        "price",
+        "age",
+        "bio",
+        "tags",
+    ]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class PetDelete(DeleteView):
+    model = Pet
+    success_url = "/pets/"
 
 
 # class Pet:
@@ -156,4 +152,4 @@ def pets_edit(request):
 
 # List of all pet instances
 # pets = [pet1, pet2, pet3, pet4, pet5, pet6, pet7, pet8, pet9, pet10]
-#default image https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/12/Vectorize-Your-Pets-Featured-Image-01.jpg
+# default image https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/12/Vectorize-Your-Pets-Featured-Image-01.jpg

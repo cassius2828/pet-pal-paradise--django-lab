@@ -11,6 +11,7 @@
 html {
   font-size: 62.5%; /* 1rem = 10px */
 }
+
 :root {
   --primary-color: #31a92f;
   --primary-color-tint: #2b8929;
@@ -18,7 +19,10 @@ html {
   --theme-light-200: #e0e0e0;
   --theme-white: #fff;
   --theme-dark: #333;
+  --danger-color: rgb(205, 37, 37) !important;
+  --warn-color: rgb(218, 180, 28) !important;
 }
+
 /* variables */
 
 body {
@@ -36,6 +40,7 @@ li {
 }
 
 /* nav */
+
 nav {
   background-color: var(--theme-white);
   border-bottom: 0.1rem solid var(--theme-light-200);
@@ -47,7 +52,6 @@ nav {
 }
 
 .nav-list {
-
   width: 100%;
   list-style-type: none;
   padding: 0;
@@ -71,6 +75,8 @@ nav {
   color: var(--primary-color);
 }
 
+/* header */
+
 header {
   background-color: var(--primary-color);
   color: var(--theme-white);
@@ -79,7 +85,8 @@ header {
   font-size: 2.4rem;
 }
 
-/* Landing Page */
+/* landing page */
+
 #landing-page {
   text-align: center;
   padding: 50px 20px;
@@ -88,7 +95,6 @@ header {
 }
 
 #hero-img-container img {
-
 }
 
 .hero {
@@ -97,7 +103,7 @@ header {
   align-items: center;
   border: solid;
   width: 60%;
-  padding: 5rem 0;
+  padding: 5rem;
   margin: 0 auto;
   background-color: var(--primary-color);
   color: #fff;
@@ -140,6 +146,7 @@ header {
 .intro p {
   font-size: 1.2rem;
 }
+
 /* footer */
 
 footer {
@@ -151,11 +158,13 @@ footer {
 }
 
 /* typography */
+
 h1 {
   font-size: 3rem;
   text-align: center;
   margin: 2rem 0;
 }
+
 /* card */
 
 .card-container {
@@ -181,11 +190,13 @@ h1 {
   margin-bottom: 1rem;
   text-align: center;
 }
+
 .card-img {
   object-fit: cover;
   height: 20rem;
   overflow: hidden;
 }
+
 .card-img img {
   border-radius: 8px;
   object-fit: cover;
@@ -201,7 +212,6 @@ h1 {
 .quick-details {
   display: flex;
   width: 80%;
-
   align-items: center;
   justify-content: space-around;
   margin: 1rem auto;
@@ -212,6 +222,7 @@ h1 {
   font-size: 1.8rem;
   font-weight: 800;
 }
+
 .tags {
   width: 80%;
   margin: 1rem auto;
@@ -230,12 +241,14 @@ h1 {
 .details-container button {
   width: 100%;
 }
+
 .card-footer {
   text-align: right;
   margin-top: 2rem;
 }
 
 /* Button styles */
+
 button {
   background-color: var(--primary-color);
   border: none;
@@ -261,14 +274,11 @@ button:disabled {
 }
 
 /* Link styles */
+
 a {
   color: var(--primary-color);
   transition: all 0.3s ease-out;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 a.button-link {
@@ -286,6 +296,7 @@ a.button-link:hover {
 }
 
 /* Additional styles */
+
 .header-logo-container {
   text-align: center;
   padding: 2rem 0;
@@ -298,6 +309,34 @@ a.button-link:hover {
 section {
   margin-top: 3rem;
 }
-#view-pets h1{
+
+h1 {
   margin-top: 8rem;
+}
+#landing h1 {
+  margin: 0;
+}
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--theme-white);
+  text-decoration: none;
+  background-color: var(--primary-color);
+}
+
+.btn.danger {
+  background-color: var(--danger-color);
+  color: var(--theme-white);
+}
+
+.btn.danger:hover {
+  background-color: rgb(152, 28, 28);
 }

@@ -1,0 +1,76 @@
+/* Details Page */
+
+#details-page {
+    max-width: 800px;
+    margin: 8rem auto; /* Ensure space from the top, considering fixed nav */
+    padding: 2rem;
+    background-color: var(--theme-white);
+    border: 0.1rem solid var(--theme-light-200);
+    border-radius: 0.8rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#details-page h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#details-page img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+#details-page .bio {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+#details-page .quick-details {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+#details-page .tags {
+    margin-bottom: 2rem;
+}
+
+#details-page .tags button {
+    margin: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0.4rem;
+    color: var(--theme-white);
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+#details-page .tags button:hover {
+    background-color: var(--primary-color-tint);
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px -11px rgba(0, 0, 0, 0.75);
+}
+
+#details-page .back-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--theme-white);
+    text-decoration: none;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    transition: all 0.3s ease-out;
+}
+
+#details-page .back-button:hover {
+    background-color: var(--primary-color-tint);
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px -11px rgba(0, 0, 0, 0.75);
+}

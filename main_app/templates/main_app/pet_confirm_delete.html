@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/pet-form.css' %}" />
+{% endblock %}
+{% block content %}
+    <section>
+        <div class="page-header">
+            <h1>Delete pet?</h1>
+        </div>
+        <h2>Are you sure you want to delete {{ pet.name }}?</h2>
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+            <a href="{% url 'pet_details' pet.id %}" class="btn secondary">Cancel</a>
+            <button type="submit" class="btn danger">Yes - Delete!</button>
+        </form>
+    </section>
+{% endblock %}
