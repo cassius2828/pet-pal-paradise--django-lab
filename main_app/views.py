@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Pet
+from .forms import VaccineForm
 
 
 # Create your views here.
@@ -16,7 +17,10 @@ def pets_index(request):
 
 def pet_details(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
-    return render(request, "pets/details.html", {"pet": pet})
+    vaccine_form = VaccineForm()
+    return render(
+        request, "pets/details.html", {"pet": pet, "vaccine_form": vaccine_form}
+    )
 
 
 class PetCreate(CreateView):
@@ -37,6 +41,17 @@ class PetUpdate(UpdateView):
 class PetDelete(DeleteView):
     model = Pet
     success_url = "/pets/"
+
+
+def add_vaccine(request, pet_id):
+    form = VaccineForm(request.POST)
+    if form.is_valid():
+
+        new_vaccine = form.save(commit=False)
+
+        new_vaccine.pet_id = pet_id
+        new_vaccine.save()
+    return redirect("pet_details", pet_id=pet_id)
 
 
 # class Pet:

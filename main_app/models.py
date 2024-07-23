@@ -20,3 +20,14 @@ class Pet(models.Model):
 
     def get_absolute_url(self):
         return reverse("pet_details", kwargs={"pet_id": self.id})
+
+
+class Vaccine(models.Model):
+    name = models.CharField(max_length=100)
+    date = models.DateField()
+
+    # fk
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} was given on {self.date}"

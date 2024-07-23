@@ -5,6 +5,7 @@
 {% endblock title %}
 {% block head %}
     <link rel="stylesheet" href="{% static "css/pet-details.css" %}">
+    <link rel="stylesheet" href="{% static "css/pet-form.css" %}">
 {% endblock head %}
 {% block content %}
     <section id="details-page">
@@ -24,5 +25,49 @@
         <a href="/pets" class="btn">Back to Pets</a>
         <a href="{% url "pet_update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
         <a href="{% url "pet_delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
+    </section>
+
+
+    {% comment %} add vaccines section below {% endcomment %}
+    <h3 class="vaccine-title">Add a Vaccine</h3>
+    <form action="{% url "add_vaccine" pet.id %}"
+          method="POST"
+          class="subsection-content">
+        {% csrf_token %}
+        {{ vaccine_form.as_p }}
+        <button type="submit" class="btn submit">Add Vaccine</button>
+    </form>
+    <!-- Existing pet-container above -->
+    <div class="vaccines-container">
+        <section class="vaccines">
+            <div class="subsection-title">
+                <h2>Vaccines</h2>
+                {% comment %} <img src="{% static 'images/pet-cone.svg' %}" alt="An ice cream cone pet" />
+              <img src="{% static 'images/pet-onigiri.svg' %}" alt="A pet as onigiri" />
+                <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" /> {% endcomment %}
+            </div>
+            {% if pet.vaccine_set.all.count %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Vaccine Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vaccine in pet.vaccine_set.all %}
+                            <tr>
+                                <td>{{ vaccine.date }}</td>
+                                <td>{{ vaccine.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="subsection-content">
+                    <p>{{ pet.name }} has not been vaccinated!</p>
+                </div>
+            {% endif %}
+        </div>
     </section>
 {% endblock content %}
