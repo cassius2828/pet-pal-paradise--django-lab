@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #31a92f;
+    --primary-color-tint: #2b8929;
+    --theme-light-100: #f9f9f9;
+    --theme-light-200: #e0e0e0;
+    --theme-white: #fff;
+    --theme-dark: #333;
+    --danger-color: rgb(205, 37, 37) !important;
+    --warn-color: rgb(218, 180, 28) !important;
+  }

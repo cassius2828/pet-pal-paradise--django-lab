@@ -1,0 +1,31 @@
+/* general styles / resets */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+
+
+/* variables */
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--theme-light-100);
+  color: var(--theme-dark);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}

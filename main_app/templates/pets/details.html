@@ -5,6 +5,7 @@
 {% endblock title %}
 {% block head %}
     <link rel="stylesheet" href="{% static "css/pet-details.css" %}">
+    <link rel="stylesheet" href="{% static "css/toys/toy-index.css" %}">
     <link rel="stylesheet" href="{% static "css/pet-form.css" %}">
 {% endblock head %}
 {% block content %}
@@ -26,8 +27,25 @@
         <a href="{% url "pet-update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
         <a href="{% url "pet-delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
     </section>
-
-
+      <!-- displaying a pet's toys -->
+      <h3>{{ pet.name }}'s Toys</h3>
+      <div class="subsection-content">
+        {% if pet.toys.count %}
+          {% for toy in pet.toys.all %}
+            <div class="toy-container">
+              <div class="color-block" style="background-color: {{ toy.color }}"></div>
+              <a href="{% url 'toy-detail' toy.id %}">
+                <p>A {{ toy.color }} {{ toy.name }}</p>
+              </a>
+              <form action="{% url "remove-toy" pet.id toy.id %} " method="DELETE">
+                <button>remove the {{ toy.color }}{{ toy.name }}</button>
+              </form>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-toys">{{ pet.name }} doesn't have any toys!</p>
+        {% endif %}
+      </div>
     {% comment %} add vaccines section below {% endcomment %}
     <h3 class="vaccine-title">Add a Vaccine</h3>
     <form action="{% url "add-vaccine" pet.id %}"
@@ -68,6 +86,20 @@
                     <p>{{ pet.name }} has not been vaccinated!</p>
                 </div>
             {% endif %}
+        </div>
+        {% comment %} available toys {% endcomment %}
+        <h3>Available Toys</h3>
+        <div class="subsection-content">
+            {% for toy in toys %}
+                <div class="toy-container">
+                    <div class="color-block" style="background-color: {{ toy.color }}"></div>
+                    <p>{{ toy.color }} {{ toy.name }}</p>
+                    <form action="{% url "associate-toy" pet.id toy.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn submit">Give Toy</button>
+                    </form>
+                </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock content %}

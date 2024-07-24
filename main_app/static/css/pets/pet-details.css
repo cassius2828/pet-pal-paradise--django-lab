@@ -1,0 +1,176 @@
+/* Details Page */
+
+#details-page {
+  max-width: 800px;
+  margin: 8rem auto; /* Ensure space from the top, considering fixed nav */
+  padding: 2rem;
+  background-color: var(--theme-white);
+  border: 0.1rem solid var(--theme-light-200);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#details-page h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+#details-page img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+#details-page .bio {
+  font-size: 1.6rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+#details-page .quick-details {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+}
+
+#details-page .tags {
+  margin-bottom: 2rem;
+}
+
+#details-page .tags button {
+  margin: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--theme-white);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+#details-page .tags button:hover {
+  background-color: var(--primary-color-tint);
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 20px -11px rgba(0, 0, 0, 0.75);
+}
+
+#details-page .back-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--theme-white);
+  text-decoration: none;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
+  transition: all 0.3s ease-out;
+}
+
+#details-page .back-button:hover {
+  background-color: var(--primary-color-tint);
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 20px -11px rgba(0, 0, 0, 0.75);
+}
+
+.vaccine-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.subsection-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border: solid;
+  width: 66%;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.subsection-title {
+  font-size: 2rem;
+}
+/* vaccines */
+.vaccines-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.vaccines {
+  width: 80%;
+  min-width: 360px;
+  border: var(--borders);
+  border-radius: var(--card-border-radius);
+  padding: 10px;
+  box-shadow: var(--card-box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.subsection-title h2 {
+  font-size: 3.2rem;
+  margin: 0;
+}
+
+.vaccines table {
+  width: calc(100% - 16px);
+  text-align: left;
+  border-collapse: collapse;
+  margin: 0 8px;
+  font-size: 1.25rem;
+}
+
+.vaccines th {
+  font-size: var(--font-l);
+  padding: 5px 5px 0;
+  border-bottom: rgb(36, 116, 248) solid 2px;
+}
+
+.vaccines td {
+  padding: 8px 5px;
+  font-size: var(--font-reg);
+  border: solid 1px;
+  text-align: start;
+}
+
+.vaccines tr:nth-child(even) {
+  background-color: #f3f3fd;
+}
+
+.subsection-content p {
+  font-size: var(--font-l);
+  margin: 5px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .vaccines-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .vaccines {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .vaccines-container {
+    padding: 0 40px;
+  }
+}

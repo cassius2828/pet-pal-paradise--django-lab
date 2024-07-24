@@ -1,0 +1,9 @@
+/* footer */
+
+footer {
+    background-color: var(--theme-white);
+    border-top: 0.1rem solid var(--theme-light-200);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+  }
