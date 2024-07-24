@@ -1,7 +1,11 @@
 /* Details Page */
 
 #details-page {
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
   margin: 8rem auto; /* Ensure space from the top, considering fixed nav */
   padding: 2rem;
   background-color: var(--theme-white);
@@ -11,6 +15,18 @@
   text-align: center;
 }
 
+#details-page .left-container,
+#details-page .right-container {
+  width: 100%;
+}
+
+#details-page .right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+
 #details-page h1 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
@@ -18,7 +34,7 @@
 }
 
 #details-page img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 0.8rem;
   margin-bottom: 1rem;
@@ -75,7 +91,8 @@
   box-shadow: 0px 8px 20px -11px rgba(0, 0, 0, 0.75);
 }
 
-.vaccine-title {
+.vaccine-title,
+.available-toys-title {
   font-size: 2rem;
   text-align: center;
   margin: 2rem auto;
@@ -83,10 +100,11 @@
 
 .subsection-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  border: solid;
+
   width: 66%;
   margin: 0 auto;
   padding: 3rem;
@@ -99,21 +117,21 @@
 .vaccines-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding-bottom: 2rem;
   align-items: center;
 }
 
 .vaccines {
   width: 80%;
-  min-width: 360px;
+  min-width: 36rem;
   border: var(--borders);
   border-radius: var(--card-border-radius);
-  padding: 10px;
+  padding: 1rem;
   box-shadow: var(--card-box-shadow);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .subsection-title {
@@ -123,7 +141,7 @@
 }
 
 .subsection-title h2 {
-  font-size: 3.2rem;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -132,11 +150,11 @@
   text-align: left;
   border-collapse: collapse;
   margin: 0 8px;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .vaccines th {
-  font-size: var(--font-l);
+  font-size: var(--font-reg);
   padding: 5px 5px 0;
   border-bottom: rgb(36, 116, 248) solid 2px;
 }
@@ -152,12 +170,51 @@
   background-color: #f3f3fd;
 }
 
+.vaccine-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .subsection-content p {
-  font-size: var(--font-l);
+  font-size: var(--font-reg);
   margin: 5px 0;
+}
+.add-to-pet-details div {
+  margin: 1rem 2rem;
+  width: 100%;
+}
+#available-toys,
+.vaccine-form {
+  border: 0.1rem solid var(--theme-light-200);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  margin: 0 2rem;
+}
+.add-to-pet-details {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+align-items: center;
+  margin: 1rem 2rem;
 }
 
 @media only screen and (min-width: 768px) {
+  #details-page {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #details-page .left-container,
+  #details-page .right-container {
+    width: 50%;
+  }
+
+  #details-page img {
+    max-width: 50%;
+  }
+
   .vaccines-container {
     flex-direction: row;
     justify-content: space-around;
@@ -166,6 +223,13 @@
 
   .vaccines {
     width: 45%;
+  }
+  .add-to-pet-details {
+    flex-direction: row;
+    margin: 4rem 0;
+  }
+  .add-to-pet-details div {
+    width: 50%;
   }
 }
 

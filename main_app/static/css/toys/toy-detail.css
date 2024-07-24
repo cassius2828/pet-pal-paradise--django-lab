@@ -5,9 +5,7 @@ main {
   min-height: auto;
 }
 
-.card {
-  width: 224px;
-  height: 224px;
+ .card {
   margin: 25px 25px 15px 40px;
   border: solid 2px;
   box-shadow: var(--card-box-shadow);

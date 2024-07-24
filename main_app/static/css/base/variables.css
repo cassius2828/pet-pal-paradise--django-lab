@@ -1,10 +1,27 @@
 :root {
     --primary-color: #31a92f;
     --primary-color-tint: #2b8929;
+    --primary-color-tint-darker: #1f601e;
     --theme-light-100: #f9f9f9;
     --theme-light-200: #e0e0e0;
     --theme-white: #fff;
     --theme-dark: #333;
     --danger-color: rgb(205, 37, 37) !important;
     --warn-color: rgb(218, 180, 28) !important;
+    --nav-bg: rgba(104, 197, 248, 0.7);
+    --nav-bg-ff: rgba(104, 197, 248, 0.9);
+    --borders: rgb(36, 116, 248) solid 2px;
+    --text-color: rgb(17, 20, 17);
+    --link-hover-color: rgb(16, 56, 158);
+    --button-bg: rgb(245, 245, 245);
+    --button-bg-hover: rgb(226, 226, 226);
+    --submit: rgb(26, 128, 0);
+    --secondary: rgb(57, 57, 57);
+    --card-box-shadow: 5px 5px 6px -1px #aaa;
+    --font-xtreme: 4.2rem;
+    --font-xxl: 3.6rem;
+    --font-xl: 2.4rem;
+    --font-l: 1.8rem;
+    --font-reg: 1.6rem;
+    --card-border-radius: 6px;
   }

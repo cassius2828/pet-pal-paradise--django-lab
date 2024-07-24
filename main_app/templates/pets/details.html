@@ -3,103 +3,115 @@
 {% block title %}
     Pet Pal Paradise | Pet Details
 {% endblock title %}
-{% block head %}
-    <link rel="stylesheet" href="{% static "css/pet-details.css" %}">
-    <link rel="stylesheet" href="{% static "css/toys/toy-index.css" %}">
-    <link rel="stylesheet" href="{% static "css/pet-form.css" %}">
-{% endblock head %}
 {% block content %}
     <section id="details-page">
-        <h1>{{ pet.name }}</h1>
-        <div class="card-img">
-            <img src="{{ pet.img }}" alt="{{ pet.name }}">
-        </div>
-        <p class="bio">{{ pet.bio }}</p>
-        <div class="quick-details">
-            <span>{{ pet.species }}</span>
-            <span>{{ pet.age }} years old</span>
-            <span class="price">${{ pet.price }}</span>
-        </div>
-        <div class="tags">
-            {% for tag in pet.tags %}<button>{{ tag }}</button>{% endfor %}
-        </div>
-        <a href="/pets" class="btn">Back to Pets</a>
-        <a href="{% url "pet-update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
-        <a href="{% url "pet-delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
-    </section>
-      <!-- displaying a pet's toys -->
-      <h3>{{ pet.name }}'s Toys</h3>
-      <div class="subsection-content">
-        {% if pet.toys.count %}
-          {% for toy in pet.toys.all %}
-            <div class="toy-container">
-              <div class="color-block" style="background-color: {{ toy.color }}"></div>
-              <a href="{% url 'toy-detail' toy.id %}">
-                <p>A {{ toy.color }} {{ toy.name }}</p>
-              </a>
-              <form action="{% url "remove-toy" pet.id toy.id %} " method="DELETE">
-                <button>remove the {{ toy.color }}{{ toy.name }}</button>
-              </form>
+        {% comment %} left container {% endcomment %}
+        <div class="left-container">
+            <h1>{{ pet.name }}</h1>
+            <div class="card-img">
+                <img src="{{ pet.img }}" alt="{{ pet.name }}">
             </div>
-          {% endfor %}
-        {% else %}
-          <p class="no-toys">{{ pet.name }} doesn't have any toys!</p>
-        {% endif %}
-      </div>
-    {% comment %} add vaccines section below {% endcomment %}
-    <h3 class="vaccine-title">Add a Vaccine</h3>
-    <form action="{% url "add-vaccine" pet.id %}"
-          method="POST"
-          class="subsection-content">
-        {% csrf_token %}
-        {{ vaccine_form.as_p }}
-        <button type="submit" class="btn submit">Add Vaccine</button>
-    </form>
-    <!-- Existing pet-container above -->
-    <div class="vaccines-container">
-        <section class="vaccines">
-            <div class="subsection-title">
-                <h2>Vaccines</h2>
-                {% comment %} <img src="{% static 'images/pet-cone.svg' %}" alt="An ice cream cone pet" />
-              <img src="{% static 'images/pet-onigiri.svg' %}" alt="A pet as onigiri" />
-                <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" /> {% endcomment %}
+            <p class="bio">{{ pet.bio }}</p>
+            <div class="quick-details">
+                <span>{{ pet.species }}</span>
+                <span>{{ pet.age }} years old</span>
+                <span class="price">${{ pet.price }}</span>
             </div>
-            {% if pet.vaccine_set.all.count %}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Vaccine Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for vaccine in pet.vaccine_set.all %}
-                            <tr>
-                                <td>{{ vaccine.date }}</td>
-                                <td>{{ vaccine.name }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
+        </div>
+        {% comment %} right container {% endcomment %}
+        <div class="right-container">
+            {% comment %} vaccines {% endcomment %}
+            <div class="vaccines-container">
+                <section class="vaccines">
+                    <div class="subsection-title">
+                        <h2>Vaccines</h2>
+                        {% comment %} <img src="{% static 'images/pet-cone.svg' %}" alt="An ice cream cone pet" />
+                      <img src="{% static 'images/pet-onigiri.svg' %}" alt="A pet as onigiri" />
+                        <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" /> {% endcomment %}
+                    </div>
+                    {% if pet.vaccine_set.all.count %}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Vaccine Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for vaccine in pet.vaccine_set.all %}
+                                    <tr>
+                                        <td>{{ vaccine.date }}</td>
+                                        <td>{{ vaccine.name }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="subsection-content">
+                            <p>{{ pet.name }} has not been vaccinated!</p>
+                        </div>
+                    {% endif %}
+                </div>
+                {% comment %} tags {% endcomment %}
+                <div class="tags">
+                    {% for tag in pet.tags %}<button>{{ tag }}</button>{% endfor %}
+                </div>
+                {% comment %} pet's toys {% endcomment %}
                 <div class="subsection-content">
-                    <p>{{ pet.name }} has not been vaccinated!</p>
+                    <h3>{{ pet.name }}'s Toys</h3>
+                    {% if pet.toys.count %}
+                        {% for toy in pet.toys.all %}
+                            <div class="toy-container">
+                                <div class="color-block" style="background-color: {{ toy.color }}"></div>
+                                <a href="{% url 'toy-detail' toy.id %}">
+                                    <p>A {{ toy.color }} {{ toy.name }}</p>
+                                </a>
+                                <form action="{% url "remove-toy" pet.id toy.id %} " method="DELETE">
+                                    <button>remove the {{ toy.color }}{{ toy.name }}</button>
+                                </form>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="no-toys">{{ pet.name }} doesn't have any toys!</p>
+                    {% endif %}
                 </div>
-            {% endif %}
-        </div>
-        {% comment %} available toys {% endcomment %}
-        <h3>Available Toys</h3>
-        <div class="subsection-content">
-            {% for toy in toys %}
-                <div class="toy-container">
-                    <div class="color-block" style="background-color: {{ toy.color }}"></div>
-                    <p>{{ toy.color }} {{ toy.name }}</p>
-                    <form action="{% url "associate-toy" pet.id toy.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn submit">Give Toy</button>
-                    </form>
+                {% comment %} btn container {% endcomment %}
+                <div>
+                    <a href="/pets" class="btn">Back to Pets</a>
+                    <a href="{% url "pet-update" pet.id %}" class="btn caution">Edit {{ pet.name }}</a>
+                    <a href="{% url "pet-delete" pet.id %}" class="btn danger">Remove {{ pet.name }}</a>
                 </div>
-            {% endfor %}
+            </div>
+        </section>
+        <div class="add-to-pet-details">
+            {% comment %} available toys {% endcomment %}
+            <div id="available-toys"  >
+                <h3 class="available-toys-title">Available Toys</h3>
+                <div class="subsection-content">
+                    {% for toy in toys %}
+                        <div class="toy-container">
+                            <div class="color-block" style="background-color: {{ toy.color }}"></div>
+                            <p>{{ toy.color }} {{ toy.name }}</p>
+                            <form action="{% url "associate-toy" pet.id toy.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn submit">Give Toy</button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% comment %} add vaccines section below {% endcomment %}
+            <div class="vaccine-form">
+                <h3 class="vaccine-title">Add a Vaccine</h3>
+                <form action="{% url "add-vaccine" pet.id %}"
+                      method="POST"
+                      class="subsection-content">
+                    {% csrf_token %}
+                    {{ vaccine_form.as_p }}
+                    <button type="submit" class="btn submit">Add Vaccine</button>
+                </form>
+            </div>
         </div>
+        <!-- Existing pet-container above -->
     </section>
 {% endblock content %}

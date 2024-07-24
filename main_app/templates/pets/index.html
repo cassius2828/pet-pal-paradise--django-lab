@@ -2,17 +2,17 @@
 {% block title %}
     Pet Pal Paradise | View Pets
 {% endblock title %}
-{% block head %}
-{% endblock head %}
 {% block content %}
     <section id="view-pets">
         <h1>View Pets</h1>
         <ul class="card-container">
             {% for pet in pets %}
                 <li class="card">
-                    <h2 class="card-header">{{ pet.name }}</h2>
-                    <div class="card-img">
-                        <img src="{{ pet.img }}" alt="{{ pet.name }}">
+                    <div>
+                        <h2 class="card-header">{{ pet.name }}</h2>
+                        <div class="card-img">
+                            <img src="{{ pet.img }}" alt="{{ pet.name }}">
+                        </div>
                     </div>
                     <div class="quick-details">
                         <span>{{ pet.species }}</span>
@@ -23,7 +23,7 @@
                         {% for tag in pet.tags %}<button>{{ tag }}</button>{% endfor %}
                     </div>
                     <div class="details-container">
-                        <a href="{% url "pet-details" pet.id%}">
+                        <a href="{% url "pet-details" pet.id %}">
                             <button>details</button>
                         </a>
                     </div>

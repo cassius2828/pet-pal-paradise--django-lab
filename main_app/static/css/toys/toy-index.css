@@ -1,17 +1,23 @@
 .card-container {
-  padding: 0 40px;
+  padding: 0 4rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .card {
-  width: 224px;
-  height: 224px;
+  text-align: center;
+  width: 100%;
+  min-height: 30svh;
+  /* overflow: hidden; */
   margin: 10px;
   border: solid 2px;
   box-shadow: var(--card-box-shadow);
   position: relative;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card-bg {
@@ -61,4 +67,14 @@
 
 .page-header > img:first-of-type {
   margin-left: 15px;
+}
+
+
+@media (min-width: 768px) {
+  .card {
+ 
+    width: 40rem;
+    min-height: 50rem;
+
+  }
 }
