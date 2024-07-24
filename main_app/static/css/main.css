@@ -1,6 +1,6 @@
-@import url("./base");
-@import url("./components");
-@import url("./layout");
-@import url("./misc");
-@import url("./pets");
-@import url("./toys");
+@import url("./base/index.css");
+@import url("./components/index.css");
+@import url("./layout/index.css");
+@import url("./misc/index.css");
+@import url("./pets/index.css");
+@import url("./toys/index.css");

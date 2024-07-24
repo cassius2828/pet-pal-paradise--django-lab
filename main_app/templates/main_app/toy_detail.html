@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/toys/toy-detail.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/toys/toy-detail.css' %}" /> {% endcomment %}
 {% endblock %}
 {% block content %}
     <div class="card" style="border-color: {{ toy.color }}">
