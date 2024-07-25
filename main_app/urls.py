@@ -24,4 +24,5 @@ urlpatterns = [
         views.remove_toy,
         name="remove-toy",
     ),
+    path("signup/", views.signup, name="signup"),
 ]
