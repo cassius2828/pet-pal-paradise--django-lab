@@ -27,6 +27,7 @@ class Pet(models.Model):
     img = models.CharField(
         default="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/12/Vectorize-Your-Pets-Featured-Image-01.jpg"
     )
+    # join table
     toys = models.ManyToManyField(Toy)
 
     def __str__(self):

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import DetailView, ListView
 from .models import Pet, Toy
-from .forms import VaccineForm
+from .forms import VaccineForm,PetForm
 
 
 # ///////////////////////////
@@ -60,7 +60,7 @@ def remove_toy(request, pet_id, toy_id):
 
 class PetCreate(CreateView):
     model = Pet
-    fields = "__all__"
+    form_class = PetForm
 
 
 class PetUpdate(UpdateView):
