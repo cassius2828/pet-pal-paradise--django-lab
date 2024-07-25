@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    {% comment %} <link rel="stylesheet" href="{% static "css/form.css" %}"> {% endcomment %}
+{% endblock head %}
+{% block content %}
+    <div class="page-header">
+        <h1>Sign Up</h1>
+        <img src="{% static "images/nerd-cat.svg" %}" alt="A cat using a computer">
+    </div>
+    {% if not error_message %}
+        <form action="{% url "signup" %}" method="POST">
+           {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn submit">Submit!</button>
+        </form>
+    {% endif %}
+{% endblock content %}
