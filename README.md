@@ -21,13 +21,6 @@ Welcome to the Animal Adoption Platform! This is a simple CRUD (Create, Read, Up
 - **View Animals**: Browse the list of animals available for adoption on the home page.
 - **Update or Delete Listings**: Click on any animal listing to update its details or remove it from the database.
 
-## Contributing
-
-We welcome contributions! Please feel free to submit issues or pull requests. Make sure to follow the coding standards and include tests for new features.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
